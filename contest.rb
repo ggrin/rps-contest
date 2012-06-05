@@ -1,6 +1,5 @@
-require 'bundler'
-Bundler.require
-
+require 'rubygems'
+require 'active_support/core_ext'
 require './judge.rb'
 require './bot.rb'
 
@@ -39,7 +38,7 @@ class Contest
   def fight!(botclass1, botclass2)
     bot1 = botclass1.new
     bot2 = botclass2.new
-    results = 1000.times.map do
+    results = 10000.times.map do
       a, b = bot1.choose, bot2.choose
       result = judge a, b
       bot1.learn(a, b)

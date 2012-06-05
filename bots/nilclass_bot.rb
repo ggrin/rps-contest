@@ -35,19 +35,12 @@ class NilclassBot < Bot
     choose_to_beat(least_common_choice)
   end
 
-  def choose_to_beat(choice)
-    CHOICE_MAP.each_pair.select { |pair|
-      pair[1] == choice
-    }.first.first
-  end
+
 
   def pick_strategy
     @strategy = STRATEGIES[rand(STRATEGIES.length)]
   end
 
-  def random_choice
-    CHOICES[rand(CHOICES.length)]
-  end
 
   def learn(a, b)
     @choice_counts[a] += 1
